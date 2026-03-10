@@ -90,10 +90,10 @@ export default function ActivitiesPane() {
         /* Overlay View for Selected Activity */
         <div className="absolute inset-0 z-50 bg-brand-900 flex flex-col animate-in fade-in zoom-in-[0.98] duration-500">
           
-          <div className="p-8 md:p-10 flex-none border-b border-brand-800/50 flex items-center justify-between relative overflow-hidden bg-brand-950/40 backdrop-blur-md">
+          <div className="p-4 md:p-8 flex-none border-b border-brand-800/50 flex items-center justify-between relative overflow-hidden bg-brand-950/40 backdrop-blur-md gap-4">
              <div className={`absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br ${selectedAct.heroColor} blur-[140px] rounded-full pointer-events-none z-0`}></div>
              
-             <div className="flex items-center gap-6 relative z-10">
+             <div className="flex items-center gap-4 md:gap-6 relative z-10 w-full md:w-auto">
                <button onClick={() => {
                  if (bookingState || bookingSubmitted) {
                     setBookingState(false);
@@ -101,35 +101,35 @@ export default function ActivitiesPane() {
                  } else {
                     setSelectedActId(null);
                  }
-               }} title="Go Back" aria-label="Go Back" className="w-14 h-14 rounded-full bg-brand-900 border border-brand-700/50 flex items-center justify-center text-brand-300 hover:text-white hover:bg-brand-800 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer hover:-translate-x-1">
-                 <ArrowLeft className="w-6 h-6" />
+               }} title="Go Back" aria-label="Go Back" className="w-10 h-10 md:w-14 md:h-14 shrink-0 rounded-full bg-brand-900 border border-brand-700/50 flex items-center justify-center text-brand-300 hover:text-white hover:bg-brand-800 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer hover:-translate-x-1">
+                 <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
                </button>
-               <div>
-                  <h2 className="text-sm uppercase tracking-widest text-brand-400 font-medium">{bookingState || bookingSubmitted ? 'Booking Request' : 'Experience Details'}</h2>
+               <div className="flex-1">
+                  <h2 className="text-xs md:text-sm uppercase tracking-widest text-brand-400 font-medium truncate">{bookingState || bookingSubmitted ? 'Booking Request' : 'Experience Details'}</h2>
                </div>
              </div>
              
-             <div className="relative z-10 w-20 h-20 rounded-[1.5rem] bg-brand-950/80 flex items-center justify-center text-white border border-brand-700/50 shadow-2xl">
-               <selectedAct.icon className="w-10 h-10" />
+             <div className="relative z-10 w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl md:rounded-[1.5rem] bg-brand-950/80 items-center justify-center text-white border border-brand-700/50 shadow-2xl hidden md:flex">
+               <selectedAct.icon className="w-8 h-8 md:w-10 md:h-10" />
              </div>
           </div>
           
-          <div className="flex-1 overflow-y-auto scroller p-8 md:p-12 pb-32 relative">
+          <div className="flex-1 overflow-y-auto scroller p-6 md:p-8 lg:p-12 pb-32 relative">
              <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
 
              <div className="max-w-4xl mx-auto relative z-10 pt-4">
-               <h2 className="text-5xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight">{selectedAct.title}</h2>
+               <h2 className="text-3xl md:text-5xl lg:text-7xl font-light text-white mb-6 md:mb-8 tracking-tight leading-tight">{selectedAct.title}</h2>
                
-               <div className="flex flex-wrap items-center gap-4 mb-14">
-                 <div className="flex items-center gap-3 px-5 py-2.5 bg-brand-950/80 border border-brand-800 rounded-full text-brand-200 text-sm font-medium shadow-inner">
-                   <Clock className="w-5 h-5 text-brand-primary" />
+               <div className="flex flex-wrap items-center gap-2 md:gap-4 mb-10 md:mb-14">
+                 <div className="flex items-center gap-2 md:gap-3 px-4 py-2 md:px-5 md:py-2.5 bg-brand-950/80 border border-brand-800 rounded-full text-brand-200 text-xs md:text-sm font-medium shadow-inner">
+                   <Clock className="w-4 h-4 md:w-5 md:h-5 text-brand-primary" />
                    {selectedAct.duration}
                  </div>
-                 <div className="flex items-center gap-3 px-5 py-2.5 bg-brand-950/80 border border-brand-800 rounded-full text-brand-200 text-sm font-medium shadow-inner">
-                   <Users className="w-5 h-5 text-brand-primary" />
+                 <div className="flex items-center gap-2 md:gap-3 px-4 py-2 md:px-5 md:py-2.5 bg-brand-950/80 border border-brand-800 rounded-full text-brand-200 text-xs md:text-sm font-medium shadow-inner">
+                   <Users className="w-4 h-4 md:w-5 md:h-5 text-brand-primary" />
                    {selectedAct.groupSize}
                  </div>
-                 <div className="flex items-center gap-3 px-6 py-2.5 bg-brand-primary/20 border border-brand-primary/50 shadow-[0_0_20px_rgba(2,132,199,0.3)] rounded-full text-white font-medium text-lg">
+                 <div className="flex items-center gap-2 md:gap-3 px-5 py-2 md:px-6 md:py-2.5 bg-brand-primary/20 border border-brand-primary/50 shadow-[0_0_20px_rgba(2,132,199,0.3)] rounded-full text-white font-medium text-base md:text-lg">
                    {selectedAct.price}
                  </div>
                </div>
@@ -182,7 +182,7 @@ export default function ActivitiesPane() {
                  </div>
                ) : (
                  <>
-                   <p className="text-2xl text-brand-200 leading-relaxed font-light mb-16 italic border-l-4 border-brand-primary/50 pl-8">
+                   <p className="text-lg md:text-2xl text-brand-200 leading-relaxed font-light mb-12 md:mb-16 italic border-l-4 border-brand-primary/50 pl-6 md:pl-8">
                      {selectedAct.longDescription}
                    </p>
     
@@ -219,21 +219,21 @@ export default function ActivitiesPane() {
         <div className="absolute inset-0 flex flex-col animate-in fade-in zoom-in-[0.98] duration-500">
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
-          <div className="p-8 pb-6 border-b border-brand-800/50 flex-none relative z-10 bg-brand-900/40 backdrop-blur-md">
-            <h2 className="text-4xl font-light text-white mb-2 tracking-wide flex items-center gap-4">
-              <MapPin className="w-10 h-10 text-brand-primary" />
+          <div className="p-6 pb-4 md:p-8 md:pb-6 border-b border-brand-800/50 flex-none relative z-10 bg-brand-900/40 backdrop-blur-md">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1 md:mb-2 tracking-wide flex items-center gap-3 md:gap-4">
+              <MapPin className="w-8 h-8 md:w-10 md:h-10 text-brand-primary" />
               Experiences
             </h2>
-            <p className="text-brand-300 text-sm uppercase tracking-widest">Curated Local Adventures</p>
+            <p className="text-brand-300 text-xs md:text-sm uppercase tracking-widest">Curated Local Adventures</p>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-6 md:p-10 scroller relative z-10">
-             <div className="columns-1 md:columns-2 gap-8 space-y-8">
+          <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-10 scroller relative z-10">
+             <div className="columns-1 lg:columns-2 gap-6 lg:gap-8 space-y-6 lg:space-y-8">
                {activities.map((act) => (
                  <div 
                    key={act.id} 
                    onClick={() => setSelectedActId(act.id)}
-                   className="break-inside-avoid group relative bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 hover:border-brand-primary/50 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between cursor-pointer overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(2,132,199,0.25)]"
+                   className="break-inside-avoid group relative bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 hover:border-brand-primary/50 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 flex flex-col justify-between cursor-pointer overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(2,132,199,0.25)]"
                  >
                    {/* Hover Glow */}
                    <div className={`absolute -inset-24 bg-gradient-to-tr ${act.heroColor} opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none`}></div>
