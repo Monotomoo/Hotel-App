@@ -29,15 +29,15 @@ export default function ActionPane() {
               <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); setStep('upload'); }}>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-brand-300 block ml-1">First Name</label>
-                <input type="text" className="w-full px-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="Paulo" required />
+                <input title="First Name" type="text" className="w-full px-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="Paulo" required />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-brand-300 block ml-1">Surname</label>
-                <input type="text" className="w-full px-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="Kralj" required />
+                <input title="Surname" type="text" className="w-full px-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="Kralj" required />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-brand-300 block ml-1">Date of Birth</label>
-                <input type="date" className="w-full px-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all text-lg text-brand-900 shadow-inner" required />
+                <input title="Date of Birth" placeholder="Date of Birth" type="date" className="w-full px-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 focus:border-brand-primary/50 transition-all text-lg text-brand-900 shadow-inner" required />
               </div>
               
               <button type="submit" className="w-full cursor-pointer bg-brand-primary hover:bg-brand-primary/90 text-white rounded-2xl py-4 text-lg font-medium transition-colors mt-8 shadow-[0_0_20px_rgba(2,132,199,0.4)] border border-brand-primary/50">

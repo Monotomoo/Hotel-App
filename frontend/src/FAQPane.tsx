@@ -119,14 +119,14 @@ export default function FAQPane() {
     <div className="flex-1 flex flex-col h-full text-brand-50 overflow-hidden animate-in fade-in zoom-in-95 duration-700 rounded-3xl relative">
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-primary/10 blur-[140px] rounded-full pointer-events-none z-0"></div>
 
-      <div className="p-8 pb-6 border-b border-brand-800/50 flex-none relative z-10 bg-brand-900/40 backdrop-blur-md">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="p-4 md:p-6 lg:p-8 pb-4 md:pb-6 border-b border-brand-800/50 flex-none relative z-10 bg-brand-900/40 backdrop-blur-md">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6">
            <div>
-             <h2 className="text-4xl font-light text-white mb-2 tracking-wide flex items-center gap-4">
-               <HelpCircle className="w-10 h-10 text-brand-primary" />
+             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1 md:mb-2 tracking-wide flex items-center gap-3 md:gap-4">
+               <HelpCircle className="w-8 h-8 md:w-10 md:h-10 text-brand-primary" />
                Guest Directory
              </h2>
-             <p className="text-brand-300 text-sm uppercase tracking-widest">Frequently Asked Questions</p>
+             <p className="text-brand-300 text-xs md:text-sm uppercase tracking-widest">Frequently Asked Questions</p>
            </div>
            
            <div className="relative w-full md:w-72 group">
@@ -142,7 +142,7 @@ export default function FAQPane() {
         </div>
       </div>
       
-      <div className="flex-1 overflow-y-auto p-6 md:p-10 scroller relative z-10">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-10 scroller relative z-10">
         
         {filteredFaqs.length === 0 ? (
            <div className="flex flex-col items-center justify-center h-full text-brand-400 space-y-4">
@@ -150,27 +150,27 @@ export default function FAQPane() {
               <p className="text-lg font-light">No answers found for "{search}"</p>
            </div>
         ) : (
-           <div className="flex flex-col gap-5 max-w-4xl mx-auto">
+           <div className="grid grid-cols-1 gap-4">
              {filteredFaqs.map((faq) => {
                const isOpen = openId === faq.id;
                return (
                  <div 
                    key={faq.id} 
                    onClick={() => setOpenId(isOpen ? null : faq.id)}
-                   className={`bg-brand-950/40 backdrop-blur-xl border ${isOpen ? 'border-brand-primary/50 shadow-[0_10px_30px_rgba(2,132,199,0.15)] bg-gradient-to-br from-brand-900/60 to-brand-950/60' : 'border-brand-800/50 hover:border-brand-600/50 hover:bg-brand-900/30'} transition-all duration-500 rounded-[2rem] p-6 md:p-8 cursor-pointer group overflow-hidden relative`}
+                   className={`bg-brand-950/40 backdrop-blur-xl border ${isOpen ? 'border-brand-primary/50 shadow-[0_10px_30px_rgba(2,132,199,0.15)] bg-gradient-to-br from-brand-900/60 to-brand-950/60' : 'border-brand-800/50 hover:border-brand-600/50 hover:bg-brand-900/30'} transition-all duration-500 rounded-[1.5rem] p-5 md:p-6 cursor-pointer group overflow-hidden relative`}
                  >
                    {isOpen && <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 blur-[50px] rounded-full pointer-events-none"></div>}
                    
                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
                      <div className="flex items-start gap-5 flex-1">
-                       <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 border transition-colors duration-500 ${isOpen ? 'bg-brand-primary/20 border-brand-primary/30 text-brand-primary' : 'bg-brand-900/80 border-brand-800 text-brand-400 group-hover:text-brand-300'}`}>
-                         <faq.icon className="w-6 h-6" />
+                       <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shrink-0 border transition-colors duration-500 ${isOpen ? 'bg-brand-primary/20 border-brand-primary/30 text-brand-primary' : 'bg-brand-900/80 border-brand-800 text-brand-400 group-hover:text-brand-300'}`}>
+                         <faq.icon className="w-5 h-5 md:w-6 md:h-6" />
                        </div>
-                       <div className="flex-1 pt-1">
-                         <div className="flex items-center gap-3 mb-2">
+                       <div className="flex-1 md:pt-1">
+                         <div className="flex items-center gap-3 mb-1 md:mb-2">
                            <span className="px-3 py-1 rounded-full bg-brand-900/80 border border-brand-800 text-[10px] uppercase font-bold tracking-widest text-brand-400">{faq.category}</span>
                          </div>
-                         <h3 className={`text-xl transition-colors duration-300 ${isOpen ? 'text-white font-medium' : 'text-brand-100 font-light'}`}>{faq.question}</h3>
+                         <h3 className={`text-base md:text-lg lg:text-xl transition-colors duration-300 ${isOpen ? 'text-white font-medium' : 'text-brand-100 font-light'}`}>{faq.question}</h3>
                        </div>
                      </div>
                      <div className={`w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-transform duration-500 ${isOpen ? 'border-brand-primary text-brand-primary rotate-180 bg-brand-primary/10' : 'border-brand-700/50 text-brand-500 group-hover:border-brand-500'}`}>
@@ -180,10 +180,10 @@ export default function FAQPane() {
                      </div>
                    </div>
                    
-                   <div className={`overflow-hidden transition-all duration-700 ease-in-out relative z-10 ${isOpen ? 'max-h-60 opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
-                     <div className="pl-[4.25rem] pr-4">
-                        <div className="h-px w-full bg-brand-800/50 mb-6"></div>
-                        <p className="text-brand-200 text-lg leading-relaxed font-light">{faq.answer}</p>
+                   <div className={`overflow-hidden transition-all duration-700 ease-in-out relative z-10 ${isOpen ? 'max-h-[500px] opacity-100 mt-4 md:mt-6' : 'max-h-0 opacity-0'}`}>
+                     <div className="pl-0 md:pl-[4.25rem] pr-0 md:pr-4 pt-4 md:pt-0">
+                        <div className="h-px w-full bg-brand-800/50 mb-4 md:mb-6 hidden md:block"></div>
+                        <p className="text-brand-200 text-sm md:text-base lg:text-lg border-t md:border-t-0 border-brand-800/50 pt-4 md:pt-0 leading-relaxed font-light">{faq.answer}</p>
                      </div>
                    </div>
                  </div>

@@ -59,6 +59,25 @@ const regions = [
       { name: 'Lokrum Island', desc: 'A lush nature reserve just a 15-minute ferry ride away, featuring a monastery.', icon: Trees },
       { name: 'Filming Tours', desc: 'Discover iconic filming locations for "King\'s Landing" hidden throughout the streets.', icon: Camera },
     ]
+  },
+  {
+    id: 4,
+    title: 'Mostar',
+    shortDescription: 'A historic crossroads of Eastern and Western cultures, famous for its iconic 16th-century Ottoman bridge.',
+    longDescription: 'Situated in the heart of Bosnia and Herzegovina, Mostar is a mesmerizing city where distinct cultural influences converge. The city is defined by the Stari Most (Old Bridge), a magnificent stone arch spanning the emerald-green Neretva River. Destroyed during the war and meticulously rebuilt, it stands as a powerful symbol of reconciliation. Visitors can wander through the Old Bazaar (Kujund\u017Eiluk), filled with traditional crafts, copperware, and the aroma of Turkish coffee and grilled \u0107evapi. Mostar offers a unique glimpse into the Ottoman heritage that shaped this part of the Balkans, all nestled within a dramatic mountain valley.',
+    icon: Landmark,
+    tag: '1.5 Hour Drive',
+    tagIcon: Car,
+    heroColor: 'from-emerald-500/30 to-teal-600/30',
+    borderColor: 'hover:border-emerald-500/50',
+    iconColor: 'text-emerald-400 group-hover:border-emerald-500/50',
+    glowColor: 'bg-emerald-500/5 group-hover:bg-emerald-500/20',
+    highlights: [
+      { name: 'Stari Most', desc: 'The iconic bridge where local divers perform daring leaps into the cold river below.', icon: Landmark },
+      { name: 'Old Bazaar', desc: 'A vibrant marketplace filled with artisan shops, traditional restaurants, and colorful stalls.', icon: Map },
+      { name: 'Blagaj Tekke', desc: 'A stunning 15th-century Dervish monastery built into the side of a cliff near a spring.', icon: Mountain },
+      { name: 'Kravice Waterfalls', desc: 'Enormous tufa cascades on the Trebi\u017Eat River, often called the Niagara of Herzegovina.', icon: Droplets },
+    ]
   }
 ];
 
@@ -150,18 +169,19 @@ export default function AboutRegionPane() {
             <p className="text-brand-300 text-xs md:text-sm uppercase tracking-widest">Surrounding Wonders</p>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-10 scroller relative z-10 space-y-6 md:space-y-10">
+          <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-10 scroller relative z-10">
+             <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
             {regions.map((r) => (
-              <div 
+                 <div 
                 key={r.id}
                 onClick={() => setSelectedRegionId(r.id)}
-                className={`relative bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 lg:p-10 overflow-hidden group cursor-pointer transition-all duration-700 shadow-xl hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${r.borderColor}`}
+                className={`relative bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 overflow-hidden group cursor-pointer transition-all duration-700 shadow-xl hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${r.borderColor} h-full`}
               >
                 <div className={`absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 rounded-full blur-[100px] transition-all duration-1000 z-0 ${r.glowColor}`}></div>
                 <div className="relative z-10 flex flex-col md:flex-row gap-6 lg:gap-10 items-start">
-                  <div className={`w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 shrink-0 rounded-[1.5rem] md:rounded-[2rem] bg-brand-950 border border-brand-800 flex items-center justify-center transition-all duration-700 shadow-xl group-hover:scale-105 ${r.iconColor}`}>
-                    <r.icon className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16" />
-                  </div>
+                   <div className={`w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 shrink-0 rounded-[1.25rem] md:rounded-[1.5rem] bg-brand-950 border border-brand-800 flex items-center justify-center transition-all duration-700 shadow-xl group-hover:scale-105 ${r.iconColor}`}>
+                     <r.icon className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3 md:mb-4">
                        <span className="px-3 py-1 md:px-4 md:py-1.5 rounded-full bg-brand-900 border border-brand-800 text-[10px] md:text-xs font-bold uppercase tracking-widest text-brand-400 flex items-center gap-2">
@@ -169,8 +189,8 @@ export default function AboutRegionPane() {
                           {r.tag}
                        </span>
                     </div>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-2 md:mb-4 tracking-tight group-hover:text-brand-50 transition-colors">{r.title}</h3>
-                    <p className="text-brand-300 leading-relaxed text-base md:text-lg font-light mb-4 md:mb-6 opacity-90 group-hover:opacity-100 transition-opacity">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-light text-white mb-2 md:mb-3 tracking-tight group-hover:text-brand-50 transition-colors">{r.title}</h3>
+                    <p className="text-brand-300 leading-relaxed text-sm md:text-base font-light mb-4 md:mb-5 opacity-90 group-hover:opacity-100 transition-opacity">
                       {r.shortDescription}
                     </p>
                     <div className="flex flex-wrap gap-2.5">
@@ -186,7 +206,8 @@ export default function AboutRegionPane() {
             ))}
           </div>
         </div>
-      )}
+      </div>
+    )}
     </div>
   );
 }

@@ -73,7 +73,7 @@ export default function Console({ onBack }: { onBack: () => void }) {
       {/* Main Content Area (Windowed layout) */}
       <main className="flex-1 flex min-h-0 relative z-10 p-4 md:p-6 lg:p-8 xl:p-12 gap-4 md:gap-6 lg:gap-8">
         {/* Left Pane: Dynamic Content + Chat */}
-        <section className="w-full lg:w-1/2 min-w-[300px] flex flex-col gap-3 md:gap-4 relative isolate">
+        <section className="w-full lg:w-[65%] min-w-[300px] flex flex-col gap-3 md:gap-4 relative isolate">
           
           {/* Main Left Content Panel */}
           <div className="transition-all duration-500 ease-in-out bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 rounded-3xl shadow-2xl overflow-hidden flex flex-col flex-1">
@@ -102,7 +102,7 @@ export default function Console({ onBack }: { onBack: () => void }) {
         </section>
 
         {/* Right Pane: Actions & Forms Window */}
-        <section className="hidden lg:flex w-1/2 bg-gradient-to-br from-brand-900/60 to-brand-950/40 backdrop-blur-3xl border border-brand-700/40 rounded-3xl shadow-[0_0_50px_rgba(2,132,199,0.15)] flex-col overflow-hidden relative p-8 ring-1 ring-white/5">
+        <section className="hidden lg:flex lg:w-[35%] bg-gradient-to-br from-brand-900/60 to-brand-950/40 backdrop-blur-3xl border border-brand-700/40 rounded-3xl shadow-[0_0_50px_rgba(2,132,199,0.15)] flex-col overflow-hidden relative p-8 ring-1 ring-white/5">
           {/* subtle inner lighting for right pane differentiation */}
           <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-bl from-white/5 to-transparent pointer-events-none rounded-tr-3xl"></div>
           

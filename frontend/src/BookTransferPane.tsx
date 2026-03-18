@@ -9,22 +9,22 @@ export default function BookTransferPane() {
     <div className="flex-1 flex flex-col h-full text-brand-50 overflow-hidden animate-in fade-in zoom-in-95 duration-500 rounded-3xl relative">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
-      <div className="p-8 pb-4 border-b border-brand-800/50 flex-none bg-brand-900/30 relative z-10 flex items-end justify-between">
+      <div className="p-6 md:p-8 pb-4 border-b border-brand-800/50 flex-none bg-brand-900/30 relative z-10 flex items-end justify-between">
         <div>
-          <h2 className="text-3xl font-light text-white mb-2 tracking-wide flex items-center gap-3">
-            <Car className="w-8 h-8 text-brand-primary" />
+          <h2 className="text-2xl md:text-3xl font-light text-white mb-1 md:mb-2 tracking-wide flex items-center gap-2 md:gap-3">
+            <Car className="w-6 h-6 md:w-8 md:h-8 text-brand-primary" />
             Transfer Booking
           </h2>
-          <p className="text-brand-300 text-sm">Seamless curated travel arrangements.</p>
+          <p className="text-brand-300 text-xs md:text-sm">Seamless curated travel arrangements.</p>
         </div>
-        <PlaneTakeoff className="w-12 h-12 text-brand-800 hidden sm:block" />
+        <PlaneTakeoff className="w-8 h-8 md:w-12 md:h-12 text-brand-800 hidden sm:block" />
       </div>
       
-      <div className="flex-1 overflow-y-auto p-6 md:p-8 scroller relative z-10">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 scroller relative z-10">
         {!submitted ? (
           <form 
             onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-            className="w-full max-w-3xl mx-auto space-y-6 bg-brand-950/40 backdrop-blur-md p-6 sm:p-8 rounded-[2rem] border border-brand-800/50 shadow-xl"
+            className="w-full max-w-3xl mx-auto space-y-6 bg-brand-950/40 backdrop-blur-md p-6 sm:p-6 rounded-[1.5rem] border border-brand-800/50 shadow-xl"
           >
             {/* Transfer Type Selection */}
             <div className="space-y-3 mb-6">
@@ -54,7 +54,7 @@ export default function BookTransferPane() {
                 <label className="text-sm font-medium text-brand-300 block ml-1">Pickup Location</label>
                 <div className="relative group">
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                  <input type="text" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. Dubrovnik Airport (DBV)" required />
+                  <input title="Pickup Location" type="text" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. Dubrovnik Airport (DBV)" required />
                 </div>
               </div>
               
@@ -62,7 +62,7 @@ export default function BookTransferPane() {
                 <label className="text-sm font-medium text-brand-300 block ml-1">Drop-off Location</label>
                 <div className="relative group">
                   <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                  <input type="text" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" defaultValue="Hotel Ostrea" required />
+                  <input title="Drop-off Location" type="text" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. Hotel Ostrea" defaultValue="Hotel Ostrea" required />
                 </div>
               </div>
 
@@ -71,7 +71,7 @@ export default function BookTransferPane() {
                   <label className="text-sm font-medium text-brand-300 block ml-1">Flight Number (If applicable)</label>
                   <div className="relative group">
                     <Plane className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                    <input type="text" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. LH1234" />
+                    <input title="Flight Number" type="text" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. LH1234" />
                   </div>
                 </div>
               )}
@@ -81,7 +81,7 @@ export default function BookTransferPane() {
                   <label className="text-sm font-medium text-brand-300 block ml-1">Day Trip Destination</label>
                   <div className="relative group">
                     <Map className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                    <select aria-label="Day Trip Destination" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 appearance-none shadow-inner cursor-pointer" defaultValue="" required>
+                    <select aria-label="Day Trip Destination" title="Day Trip Destination" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 appearance-none shadow-inner cursor-pointer" defaultValue="" required>
                       <option value="" disabled>Select a destination...</option>
                       <option value="Dubrovnik">Dubrovnik Old Town</option>
                       <option value="Korcula">Korčula Island</option>
@@ -97,7 +97,7 @@ export default function BookTransferPane() {
                 <label className="text-sm font-medium text-brand-300 block ml-1">Date & Time</label>
                 <div className="relative group">
                   <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                  <input type="datetime-local" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" required />
+                   <input title="Date and Time" placeholder="Date and Time" type="datetime-local" className="w-full pl-12 pr-5 py-3 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-base text-brand-900 placeholder:text-brand-400 shadow-inner" required />
                 </div>
               </div>
 
@@ -105,7 +105,7 @@ export default function BookTransferPane() {
                 <label className="text-sm font-medium text-brand-300 block ml-1">Number of Passengers</label>
                 <div className="relative group">
                   <Users className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                  <input type="number" min="1" max="15" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. 2" required />
+                   <input title="Number of Passengers" type="number" min="1" max="15" className="w-full pl-12 pr-5 py-3 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-base text-brand-900 placeholder:text-brand-400 shadow-inner" placeholder="E.g. 2" required />
                 </div>
               </div>
 
@@ -113,7 +113,7 @@ export default function BookTransferPane() {
                 <label className="text-sm font-medium text-brand-300 block ml-1">Special Requests</label>
                 <div className="relative group">
                   <Star className="absolute left-4 top-5 w-5 h-5 text-brand-500 group-focus-within:text-brand-primary transition-colors" />
-                  <textarea className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner min-h-[120px]" placeholder="Child seat needed, extra luggage, etc."></textarea>
+                  <textarea title="Special Requests" className="w-full pl-12 pr-5 py-4 bg-white border border-brand-800 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-primary/50 text-lg text-brand-900 placeholder:text-brand-400 shadow-inner min-h-[120px]" placeholder="Child seat needed, extra luggage, etc."></textarea>
                 </div>
               </div>
 

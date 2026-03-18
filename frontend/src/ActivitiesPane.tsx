@@ -219,39 +219,39 @@ export default function ActivitiesPane() {
         <div className="absolute inset-0 flex flex-col animate-in fade-in zoom-in-[0.98] duration-500">
           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-primary/10 blur-[150px] rounded-full pointer-events-none z-0"></div>
 
-          <div className="p-6 pb-4 md:p-8 md:pb-6 border-b border-brand-800/50 flex-none relative z-10 bg-brand-900/40 backdrop-blur-md">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1 md:mb-2 tracking-wide flex items-center gap-3 md:gap-4">
-              <MapPin className="w-8 h-8 md:w-10 md:h-10 text-brand-primary" />
+          <div className="p-5 md:p-6 lg:p-8 pb-3 md:pb-4 lg:pb-6 border-b border-brand-800/50 flex-none relative z-10 bg-brand-900/40 backdrop-blur-md">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-1 tracking-wide flex items-center gap-3">
+              <MapPin className="w-6 h-6 md:w-7 md:h-7 lg:w-10 lg:h-10 text-brand-primary" />
               Experiences
             </h2>
-            <p className="text-brand-300 text-xs md:text-sm uppercase tracking-widest">Curated Local Adventures</p>
+            <p className="text-brand-300 text-xs uppercase tracking-widest">Curated Local Adventures</p>
           </div>
           
-          <div className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-10 scroller relative z-10">
-             <div className="columns-1 lg:columns-2 gap-6 lg:gap-8 space-y-6 lg:space-y-8">
+          <div className="flex-1 overflow-y-auto p-3 md:p-4 lg:p-10 scroller relative z-10">
+             <div className="columns-1 lg:columns-2 gap-4 lg:gap-8 space-y-4 lg:space-y-8">
                {activities.map((act) => (
                  <div 
                    key={act.id} 
                    onClick={() => setSelectedActId(act.id)}
-                   className="break-inside-avoid group relative bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 hover:border-brand-primary/50 rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-8 flex flex-col justify-between cursor-pointer overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(2,132,199,0.25)]"
+                   className="break-inside-avoid group relative bg-brand-950/40 backdrop-blur-xl border border-brand-800/50 hover:border-brand-primary/50 rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] p-4 md:p-5 lg:p-8 flex flex-col justify-between cursor-pointer overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(2,132,199,0.25)]"
                  >
                    {/* Hover Glow */}
                    <div className={`absolute -inset-24 bg-gradient-to-tr ${act.heroColor} opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none`}></div>
                    
-                   <div className="flex justify-between items-start mb-10 relative z-10">
-                     <div className="w-20 h-20 rounded-[1.5rem] bg-brand-900 flex items-center justify-center border border-brand-800 shrink-0 shadow-inner text-brand-300 group-hover:text-white group-hover:bg-brand-primary/20 transition-all duration-500 group-hover:scale-110">
-                       <act.icon className="w-10 h-10" />
+                   <div className="flex justify-between items-start mb-5 md:mb-7 lg:mb-10 relative z-10">
+                     <div className="w-12 h-12 md:w-14 md:h-14 lg:w-20 lg:h-20 rounded-[1rem] md:rounded-[1.25rem] lg:rounded-[1.5rem] bg-brand-900 flex items-center justify-center border border-brand-800 shrink-0 shadow-inner text-brand-300 group-hover:text-white group-hover:bg-brand-primary/20 transition-all duration-500 group-hover:scale-110">
+                       <act.icon className="w-6 h-6 md:w-7 md:h-7 lg:w-10 lg:h-10" />
                      </div>
-                     <div className="w-12 h-12 rounded-full border border-brand-700/50 bg-brand-950 shrink-0 flex items-center justify-center text-brand-500 group-hover:text-white group-hover:bg-brand-primary group-hover:border-brand-primary transition-all duration-500">
-                       <svg className="w-6 h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <div className="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border border-brand-700/50 bg-brand-950 shrink-0 flex items-center justify-center text-brand-500 group-hover:text-white group-hover:bg-brand-primary group-hover:border-brand-primary transition-all duration-500">
+                       <svg className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 -rotate-45 group-hover:rotate-0 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                        </svg>
                      </div>
                    </div>
                    
                    <div className="relative z-10">
-                     <h3 className="text-3xl font-light mb-4 text-brand-50 group-hover:text-white transition-colors tracking-tight leading-tight">{act.title}</h3>
-                     <p className="text-brand-300 text-base leading-relaxed font-light mb-6 opacity-80 group-hover:opacity-100 transition-opacity duration-500">{act.description}</p>
+                     <h3 className="text-xl md:text-2xl lg:text-3xl font-light mb-2 md:mb-3 lg:mb-4 text-brand-50 group-hover:text-white transition-colors tracking-tight leading-tight">{act.title}</h3>
+                     <p className="text-brand-300 text-sm lg:text-base leading-relaxed font-light mb-4 lg:mb-6 opacity-80 group-hover:opacity-100 transition-opacity duration-500">{act.description}</p>
                      
                      <div className="flex items-center gap-4 text-sm font-medium text-brand-500 group-hover:text-brand-300 transition-colors duration-500 mt-auto pt-6 border-t border-brand-800/50">
                         <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {act.duration}</span>

@@ -24,3 +24,28 @@
     @apply text-brand-50 bg-brand-900 antialiased;
   }
 }
+@layer utilities {
+  .scroller::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scroller::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+    border-radius: 10px;
+  }
+  .scroller::-webkit-scrollbar-thumb {
+    background: rgba(2, 132, 199, 0.4);
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  .scroller::-webkit-scrollbar-thumb:hover {
+    background: rgba(2, 132, 199, 0.6);
+    background-clip: padding-box;
+  }
+  
+  /* Firefox support */
+  .scroller {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(2, 132, 199, 0.4) rgba(15, 23, 42, 0.3);
+  }
+}
