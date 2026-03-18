@@ -19,29 +19,40 @@ export default function WelcomeScreen({ onCheckIn }: { onCheckIn: () => void }) 
       {/* Foreground Content */}
       <div className="relative z-10 text-center flex flex-col items-center px-4 w-full h-full justify-center">
         
+        {/* Kralj Logo */}
+        <div className="relative mb-5 md:mb-6 animate-in fade-in slide-in-from-bottom-8 duration-[1200ms] fill-mode-both">
+          <div className="absolute inset-0 bg-brand-primary/20 blur-[80px] rounded-full mix-blend-screen pointer-events-none" />
+          <img
+            src="/kralj-logo.webp"
+            alt="Kralj Logo"
+            className="relative z-10 w-40 md:w-52 lg:w-64 mx-auto object-contain drop-shadow-[0_0_40px_rgba(2,132,199,0.5)]"
+          />
+        </div>
+
         {/* Massive Dramatic Title */}
-        <div className="relative mb-12 group">
+        <div className="relative mb-6 md:mb-8 group">
           <div className="absolute inset-0 bg-brand-primary/10 blur-[150px] rounded-full mix-blend-screen -z-10 group-hover:bg-brand-primary/30 transition-all duration-1000"></div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[9rem] leading-tight font-thin tracking-[0.1em] text-white drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] animate-in fade-in slide-in-from-bottom-12 duration-[1500ms] fill-mode-both uppercase">
-            Hotel<br className="md:hidden" /> <span className="font-light italic tracking-[0.15em] bg-clip-text text-transparent bg-gradient-to-br from-white via-brand-100 to-brand-500 drop-shadow-[0_0_30px_rgba(2,132,199,0.5)]">Ostrea</span>
+          <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-tight font-semibold tracking-[0.1em] text-white drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] animate-in fade-in slide-in-from-bottom-12 duration-[1500ms] fill-mode-both uppercase">
+            Hotel<br className="md:hidden" /> <span className="font-extrabold italic tracking-[0.15em] bg-clip-text text-transparent bg-gradient-to-br from-white via-brand-100 to-brand-500 drop-shadow-[0_0_30px_rgba(2,132,199,0.5)]">Ostrea</span>
           </h1>
         </div>
         
-        <p className="text-2xl md:text-3xl lg:text-4xl text-brand-300 font-light mb-24 max-w-5xl animate-in fade-in slide-in-from-bottom-8 duration-[1500ms] delay-500 fill-mode-both tracking-[0.2em] uppercase leading-[1.8] md:leading-[2]">
-          A seamless journey begins.<br className="md:hidden"/> Guided by AI.
+        <p className="text-sm md:text-base lg:text-lg text-brand-300 font-light mb-12 md:mb-16 max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-[1500ms] delay-500 fill-mode-both tracking-[0.2em] uppercase leading-[2.2] md:leading-[2.4]">
+          Your digital concierge — <span className="text-brand-100">check in</span> &amp; explore your stay.<br />
+          Discover everything <span className="text-brand-100">Pelješac</span> has to offer.
         </p>
 
         <button
           onClick={onCheckIn}
-          className="group relative cursor-pointer inline-flex items-center justify-center px-16 py-8 md:px-20 md:py-10 text-3xl md:text-4xl font-light text-white bg-brand-900/40 hover:bg-brand-primary/30 border border-brand-primary/30 hover:border-white transition-all duration-700 ease-out rounded-full shadow-[0_0_50px_rgba(2,132,199,0.2)] hover:shadow-[0_0_80px_rgba(2,132,199,0.6)] hover:scale-105 backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in-95 duration-[1500ms] delay-[1000ms] fill-mode-both"
+          className="group relative cursor-pointer inline-flex items-center justify-center px-10 py-5 md:px-14 md:py-7 text-xl md:text-2xl font-light text-white bg-brand-900/40 hover:bg-brand-primary/30 border border-brand-primary/30 hover:border-white transition-all duration-700 ease-out rounded-full shadow-[0_0_50px_rgba(2,132,199,0.2)] hover:shadow-[0_0_80px_rgba(2,132,199,0.6)] hover:scale-105 backdrop-blur-xl overflow-hidden animate-in fade-in zoom-in-95 duration-[1500ms] delay-[1000ms] fill-mode-both"
         >
           {/* Button inner glow and ripple sweep */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-[1500ms] ease-in-out"></div>
           
-          <span className="relative z-10 flex items-center gap-6 uppercase tracking-widest">
+          <span className="relative z-10 flex items-center gap-4 uppercase tracking-widest">
             Begin Your Stay
-            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-              <ArrowRight className="w-8 h-8 md:w-10 md:h-10 group-hover:translate-x-3 transition-transform duration-500" />
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+              <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-500" />
             </div>
           </span>
         </button>
